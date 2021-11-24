@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link
+      href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@332&display=swap");
+    </style>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <body>
+    <header class="mdc-top-app-bar">
+      <div class="mdc-top-app-bar__row">
+        <section
+          class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start"
+        >
+          <span class="mdc-top-app-bar__title">SHIFT+CLICK</span>
+        </section>
+        <section
+          class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end"
+          role="toolbar"
+        >
+         <a href="/"><button
+            class="material-icons mdc-top-app-bar__action-item mdc-icon-button"
+            aria-label="home"
+          >
+            home
+          </button></a>
+          <a href="/roster"
+            ><button
+              class="
+                material-icons
+                mdc-top-app-bar__action-item
+                mdc-icon-button
+              "
+              aria-label="Search"
+            >
+              people
+            </button></a
+          >
+          <button
+            class="material-icons mdc-top-app-bar__action-item mdc-icon-button"
+            aria-label="Options"
+          >
+            date_range
+          </button>
+          <button
+            class="material-icons mdc-top-app-bar__action-item mdc-icon-button"
+            aria-label="Options"
+          >
+            event_available
+          </button>
+        </section>
+      </div>
+    </header>
+    <main class="mdc-top-app-bar--fixed-adjust mdc-card">
+       
+        <div class="mdc-card">
+          <h3>New Employee</h3>
+          <form id="new-emp" action="/roster" method="POST">
+          <ul class="new_emp_info">
+            <label>First Name:</label>
+            <input type="text" name="first_name">
+
+            <label>Last Name:</label>
+            <input type="text" name="last_name">
+
+            <label>D.O.B.:</label>
+            <input type="date" name="birthdate">
+
+            <label>Phone Number:</label>
+            <input type="text" name="emp_phone">
+
+            <label>E-Mail:</label>
+            <input type="text" name="emp_email">
+
+            <label>Address:</label>
+            <input type="text" name="address">
+
+            <label>Employee ID:</label>
+            <input type="text" name="emp_id">
+
+            <label>Admin:</label>
+            <input type="checkbox" name="is_admin">
+
+            <label>Salary:</label>
+            <input type="text" name="salary">
+
+            <label>Role:</label>
+            <select name="job_title">
+                <option value="Store Manager">Store Manager</option>
+                <option value="Assistant Manager">Assistant Manager</option>
+                <option value="Keyholder">Keyholder</option>
+                <option value="Associate">Associate</option>
+              </select>
+
+            <label>Type:</label>
+            <select name="emp_type">
+                <option value="Full-Time">Full-Time</option>
+                <option value="Part-Time">Part-Time</option>
+                <option value="Seasonal">Seasonal</option>
+              </select>
+
+              <input class="mdc-button mdc-button--outlined" type="submit" value="Add Employee">
+        </div>
+    </form>
+      </main>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link
+      href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@332&display=swap");
+    </style>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <body>
+    <header class="mdc-top-app-bar">
+      <div class="mdc-top-app-bar__row">
+        <section
+          class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start"
+        >
+          <span class="mdc-top-app-bar__title">SHIFT+CLICK</span>
+        </section>
+        <section
+          class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end"
+          role="toolbar"
+        >
+          <button
+            class="material-icons mdc-top-app-bar__action-item mdc-icon-button"
+            aria-label="home"
+          >
+          home
+          </button>
+          <a href="/roster"><button
+            class="material-icons mdc-top-app-bar__action-item mdc-icon-button"
+            aria-label="Search"
+          >
+          people
+          </button></a>
+          <button
+            class="material-icons mdc-top-app-bar__action-item mdc-icon-button"
+            aria-label="Options"
+          >
+          date_range
+          </button>
+          <button
+            class="material-icons mdc-top-app-bar__action-item mdc-icon-button"
+            aria-label="Options"
+          >
+          event_available
+          </button>
+        </section>
+      </div>
+    </header>
+    <main class="mdc-top-app-bar--fixed-adjust mdc-card">
+      <div class="flex-container">
+      <div class="mdc-data-table">
+        <div class="mdc-data-table__table-container">
+          <h3> Today's Punches </h3>
+          <table class="mdc-data-table__table" aria-label="Dessert calories">
+            <thead>
+              <tr class="mdc-data-table__header-row">
+                <th class="mdc-data-table__header-cell" role="columnheader" scope="col">Employee</th>
+                <th class="mdc-data-table__header-cell mdc-data-table__header-cell--numeric" role="columnheader" scope="col">Status</th>
+                <th class="mdc-data-table__header-cell mdc-data-table__header-cell--numeric" role="columnheader" scope="col">Role</th>
+                <th class="mdc-data-table__header-cell" role="columnheader" scope="col">Time Clock</th>
+              </tr>
+            </thead>
+            <tbody class="mdc-data-table__content">
+              <tr class="mdc-data-table__row">
+                <th class="mdc-data-table__cell" scope="row">Employee #1</th>
+                <td class="mdc-data-table__cell mdc-data-table__cell--numeric">Online</td>
+                <td class="mdc-data-table__cell mdc-data-table__cell--numeric">Keyholder</td>
+                <td class="mdc-data-table__cell">11:30 AM (Clocked: In)</td>
+              </tr>
+              <tr class="mdc-data-table__row">
+                <th class="mdc-data-table__cell" scope="row">Employee #2</th>
+                <td class="mdc-data-table__cell mdc-data-table__cell--numeric">Break</td>
+                <td class="mdc-data-table__cell mdc-data-table__cell--numeric">Associate</td>
+                <td class="mdc-data-table__cell">11:15 AM (Clocked: Lunch)</td>
+              </tr>
+              <tr class="mdc-data-table__row">
+                <th class="mdc-data-table__cell" scope="row">Employee #3</th>
+                <td class="mdc-data-table__cell mdc-data-table__cell--numeric">Offline</td>
+                <td class="mdc-data-table__cell mdc-data-table__cell--numeric">Associate</td>
+                <td class="mdc-data-table__cell">10:45 AM (Clocked: Out)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="mdc-card">
+        <h3>Today's Schedule</h3>
+        <ul class="today-schedule">
+          <li>Employee #1 - Keyholder</li>
+          <li>8am-5pm</li>
+        </br>
+          <li>Employee #2 - Associate</li>
+          <li>8am-5pm</li>
+        </br>
+          <li>Employee #3 - Associate</li>
+          <li>8am-10:45am</li>
+
+        </ul>
+      </div>
+    </main>
+
+    </nav>
+  </body>
+</html>

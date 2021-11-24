@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link
+      href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@332&display=swap");
+    </style>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <body>
+    <header class="mdc-top-app-bar">
+      <div class="mdc-top-app-bar__row">
+        <section
+          class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start"
+        >
+          <span class="mdc-top-app-bar__title">SHIFT+CLICK</span>
+        </section>
+        <section
+          class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end"
+          role="toolbar"
+        >
+         <a href="/"><button
+            class="material-icons mdc-top-app-bar__action-item mdc-icon-button"
+            aria-label="home"
+          >
+            home
+          </button></a>
+          <a href="/roster"
+            ><button
+              class="
+                material-icons
+                mdc-top-app-bar__action-item
+                mdc-icon-button
+              "
+              aria-label="Search"
+            >
+              people
+            </button></a
+          >
+          <button
+            class="material-icons mdc-top-app-bar__action-item mdc-icon-button"
+            aria-label="Options"
+          >
+            date_range
+          </button>
+          <button
+            class="material-icons mdc-top-app-bar__action-item mdc-icon-button"
+            aria-label="Options"
+          >
+            event_available
+          </button>
+        </section>
+      </div>
+    </header>
+    <main class="mdc-top-app-bar--fixed-adjust mdc-card">
+        <div class="flex-container">
+        <div class="mdc-data-table">
+          <div class="mdc-data-table__table-container">
+            <h3> Roster </h3>
+            <table class="mdc-data-table__table" aria-label="Dessert calories">
+              <thead>
+                <tr class="mdc-data-table__header-row">
+                  <th class="mdc-data-table__header-cell" role="columnheader" scope="col">Employee</th>
+                  <th class="mdc-data-table__header-cell mdc-data-table__header-cell--numeric" role="columnheader" scope="col">Role</th>
+                  <th class="mdc-data-table__header-cell mdc-data-table__header-cell--numeric" role="columnheader" scope="col">Type</th>
+                  <th class="mdc-data-table__header-cell" role="columnheader" scope="col">Edit/Delete</th>
+                </tr>
+              </thead>
+              <tbody class="mdc-data-table__content">
+                <% employees.forEach(function(i) { %>
+                <tr class="mdc-data-table__row">
+                  <th class="mdc-data-table__cell" scope="row"><%= i.first_name %> <%= i.last_name %></th>
+                  <td class="mdc-data-table__cell mdc-data-table__cell--numeric"><%= i.job_title %></td>
+                  <td class="mdc-data-table__cell mdc-data-table__cell--numeric"><%= i.emp_type %></td>
+                  <td class="mdc-data-table__cell"><div class="mdc-touch-target-wrapper">
+                    <a href="/roster/edit/<%= i._id %>"><button class="mdc-button mdc-button--outlined">
+                        <span class="mdc-button__ripple"></span>
+                        <i class="material-icons mdc-button__icon" aria-hidden="true">edit</i>
+                      </button></a>
+                      <a href="/roster/<%= i._id %>"> <button class="mdc-button mdc-button--outlined">
+                        <span class="mdc-button__ripple"></span>
+                        <i class="material-icons mdc-button__icon" aria-hidden="true"
+                        >person</i>
+                      </button></a>
+                  </div></td>
+                </tr>
+                <% }); %>
+                <tr class="mdc-data-table__row">  
+                <th class="mdc-data-table__cell" scope="row">
+                    <a href="/roster/new"><button class="mdc-button mdc-button--outlined">
+                    <span class="mdc-button__ripple"></span>
+                    <i class="material-icons mdc-button__icon" aria-hidden="true"
+                    >person_add</i>
+                  </button></a>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="mdc-card">
+          <h3>Employee Information</h3>
+          <% if (emp_details){ %>       
+<ul class="emp_info">
+    <li><strong>Name:</strong> <%= emp_details.first_name %> <%= emp_details.last_name %></li>
+    <li><strong>Phone Number:</strong> <%= emp_details.emp_phone %></li>
+    <li><strong>E-Mail:</strong> <%= emp_details.emp_email %></li>
+    <li><strong>Address:</strong> <%= emp_details.address %></li>
+    <li><strong>D.O.B.:</strong> <%= emp_details.birthdate %></li>
+</br>
+    <li><strong>Employee ID:</strong> <%= emp_details.emp_id %></li>
+    <li><strong>Admin:</strong> <%= emp_details.is_admin %> </li>
+    <li><strong>Salary:</strong> $<%= emp_details.salary %>/hr</li>
+    <li><strong>Role:</strong> <%= emp_details.job_title %></li>
+    <li><strong>Type:</strong> <%= emp_details.emp_type %></li>
+</ul>
+<% }else { %>
+ <h4>Select an Employee</h4>
+<% } %>
+       
+  
+         
+        </div>
+      </main>
+  </body>
+</html>

@@ -1,0 +1,38 @@
+* {
+  font-family: "Open Sans", sans-serif;
+}
+body {
+  display: flex;
+}
+.mdc-top-app-bar__title {
+  font-size: 25px;
+}
+.mdc-top-app-bar__section {
+  background-color: rgb(78, 192, 226);
+}
+.today-schedule {
+  list-style: none;
+}
+
+.mdc-data-table__table-container {
+  text-align: center;
+}
+.mdc-card {
+  text-align: center;
+}
+
+h3 {
+  text-decoration: underline;
+}
+
+
+.mdc-button__icon {
+  color: rgb(78, 192, 226);
+}
+
+.emp_info {
+  list-style: none;
+}
+.new_emp_info {
+  list-style: none;
+}
