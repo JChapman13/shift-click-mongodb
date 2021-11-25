@@ -45,11 +45,14 @@ function editEmp(req, res) {
 }
 
 function update(req, res) {
-  let employee = JSON.parse(JSON.stringify(req.body));
-  User.updateOne(employee, req.body.id);
-  res.redirect("/roster");
+  User.updateOne({ _id: req.params.id }, req.body)
+    .then(function (success) {
+      res.redirect("/roster");
+    })
+    .catch(function (error) {
+      res.status(404).send(err);
+    });
 }
-
 
 module.exports = {
   index,

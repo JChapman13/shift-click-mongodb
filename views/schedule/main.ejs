@@ -51,17 +51,21 @@
           >
             date_range
           </button>
-  
+     
         </section>
       </div>
     </header>
     <main class="mdc-top-app-bar--fixed-adjust mdc-card">
       <div class="mdc-data-table">
+        <button class="material-icons mdc-icon-button">arrow_back</button>
         <h3>Week</h3>
-        <form action="/schedule" Method="POST">
-        <input name="week_id" type="week"></input>
+        <button class="material-icons mdc-icon-button">arrow_forward</button>
+        <a href="schedule/edit"><button class="material-icons mdc-icon-button">edit</button></a>
+        <a href="schedule/new"><button class="material-icons mdc-icon-button">add</button></a>
+
         <div class="mdc-data-table__table-container">
-          <table class="mdc-data-table__table">
+          <table class="mdc-data-table__table" aria-label="Dessert calories">
+            <thead>
               <tr class="mdc-data-table__header-row">
                 <th
                   class="mdc-data-table__header-cell"
@@ -70,7 +74,7 @@
                 >
                   Employee
                 </th>
-               <th
+                <th
                   class="
                     mdc-data-table__header-cell
                     mdc-data-table__header-cell--numeric
@@ -80,7 +84,7 @@
                 >
                   Monday
                 </th>
-               <th
+                <th
                   class="
                     mdc-data-table__header-cell
                     mdc-data-table__header-cell--numeric
@@ -90,40 +94,47 @@
                 >
                   Tuesday
                 </th>
-               <th
+                <th
                   class="mdc-data-table__header-cell"
                   role="columnheader"
                   scope="col"
                 >
                   Wednesday
                 </th>
-               <th
+                <th
                   class="mdc-data-table__header-cell"
                   role="columnheader"
                   scope="col"
                 >
                   Thursday
                 </th>
-               <th
+                <th
                   class="mdc-data-table__header-cell"
                   role="columnheader"
                   scope="col"
                 >
                   Friday
                 </th>
-               <th
+                <th
                   class="mdc-data-table__header-cell"
                   role="columnheader"
                   scope="col"
                 >
                   Saturday
                 </th>
-               <th
+                <th
                   class="mdc-data-table__header-cell"
                   role="columnheader"
                   scope="col"
                 >
                   Sunday
+                </th>
+                <th
+                  class="mdc-data-table__header-cell"
+                  role="columnheader"
+                  scope="col"
+                >
+                  Total Hours
                 </th>
               </tr>
             </thead>
@@ -133,40 +144,34 @@
                 <th class="mdc-data-table__cell" scope="row">
                   <%= e.first_name %> <%= e.last_name %>
                 </th>
-                <td class="mdc-data-table__cell mdc-data-table__cell--numeric">
-                  <input type="text" name="<%= e._id %>-monday-start" placeholder="Start Time" />
-                  <input type="text" name="<%= e._id %>-monday-end%>" placeholder="End Time" />
-                </td>
-                <td class="mdc-data-table__cell mdc-data-table__cell--numeric">
-                  <input type="text" name="<%= e._id %>-tuesday-start" placeholder="Start Time" />
-                  <input type="text" name="<%= e._id %>-tuesday-end%>" placeholder="End Time" />
-                </td>
-                <td class="mdc-data-table__cell mdc-data-table__cell--numeric">
-                  <input type="text" name="<%= e._id %>-wednesday-start" placeholder="Start Time" />
-                  <input type="text" name="<%= e._id %>-wednesday-end%>" placeholder="End Time" />
-                </td>
-                <td class="mdc-data-table__cell mdc-data-table__cell--numeric">
-                  <input type="text" name="<%= e._id %>-thursday-start" placeholder="Start Time" />
-                  <input type="text" name="<%= e._id %>-thursday-end%>" placeholder="End Time" />
-                </td>
-                <td class="mdc-data-table__cell mdc-data-table__cell--numeric">
-                  <input type="text" name="<%= e._id %>-friday-start" placeholder="Start Time" />
-                  <input type="text" name="<%= e._id %>-friday-end%>" placeholder="End Time" />
-                </td>
-                <td class="mdc-data-table__cell mdc-data-table__cell--numeric">
-                  <input type="text" name="<%= e._id %>-saturday-start" placeholder="Start Time" />
-                  <input type="text" name="<%= e._id %>-saturday-end%>" placeholder="End Time" />
-                </td>
-                <td class="mdc-data-table__cell mdc-data-table__cell--numeric">
-                  <input type="text" name="<%= e._id %>-sunday-start" placeholder="Start Time" />
-                  <input type="text" name="<%= e._id %>-sunday-end%>" placeholder="End Time" />
-                </td>
+                <td
+                  class="mdc-data-table__cell mdc-data-table__cell--numeric"
+                ></td>
+                <td
+                  class="mdc-data-table__cell mdc-data-table__cell--numeric"
+                ></td>
+                <td
+                  class="mdc-data-table__cell mdc-data-table__cell--numeric"
+                ></td>
+                <td
+                  class="mdc-data-table__cell mdc-data-table__cell--numeric"
+                ></td>
+                <td
+                  class="mdc-data-table__cell mdc-data-table__cell--numeric"
+                ></td>
+                <td
+                  class="mdc-data-table__cell mdc-data-table__cell--numeric"
+                ></td>
+                <td
+                  class="mdc-data-table__cell mdc-data-table__cell--numeric"
+                ></td>
+                <td
+                  class="mdc-data-table__cell mdc-data-table__cell--numeric"
+                ></td>
               </tr>
               <% }); %>
             </tbody>
           </table>
-          <input type="submit" value="Add Schedule">
-        </form>
         </div>
       </div>
     </main>

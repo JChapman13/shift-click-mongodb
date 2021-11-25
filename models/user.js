@@ -13,6 +13,7 @@ const userSchema = new Schema({
   salary: Number,
   emp_type: String,
   is_admin: Boolean,
+  
 });
 
 module.exports = mongoose.model("User", userSchema);
