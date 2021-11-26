@@ -1,10 +1,10 @@
 const Schedule = require("../models/schedule");
 const User = require("../models/user");
-var moment = require("moment");
 
 function index(req, res) {
-  User.find({}, function (err, employees) {
-    res.render("schedule/main", { employees });
+  Schedule.distinct("week_id", function (err, schedule) {
+    console.log(schedule);
+    res.render("schedule/main", { schedule });
   });
 }
 
@@ -21,9 +21,7 @@ function create(req, res) {
 
   for (const schedule in info) {
     if (schedule !== "week_id") {
-      console.log(counter);
       if (counter % 2) {
-        console.log("new schedule: ", counter);
         arrSchedules.push({});
       }
       const arrData = schedule.split("-");
@@ -34,21 +32,40 @@ function create(req, res) {
         arrSchedules[arrSchedules.length - 1].start_time = info[schedule];
         arrSchedules[arrSchedules.length - 1].employee = arrData[0];
       } else {
-        arrSchedules[arrSchedules.length - 1].work_day = day;
         arrSchedules[arrSchedules.length - 1].end_time = info[schedule];
       }
       counter++;
     }
   }
-  const new_schedule = new Schedule(arrSchedules);
-  console.log(arrSchedules);
-  arrSchedules.forEach(function (x) {
-    Schedule.save(x);
+
+  Schedule.insertMany(arrSchedules, function (err) {
+    if (err) return res.redirect("/schedule");
+    res.redirect("/schedule");
   });
-  res.redirect("/schedule", { info });
+}
+
+function show(req, res) {
+  Schedule.find("week_id")
+    .populate("employees")
+    .exec(function (err, employees) {
+      let employeeNames = employees.map((e) => e.employee);
+      let uniqueEmployees = [...new Set(employeeNames)];
+      uniqueEmployees.forEach((e, idx) => {
+        uniqueEmployees[idx] = { employee: e };
+        employees.forEach((eDoc) => {
+          if (eDoc.employee === e) {
+            uniqueEmployees[idx][eDoc.work_day] = {};
+            uniqueEmployees[idx][eDoc.work_day].start_time = eDoc.start_time;
+            uniqueEmployees[idx][eDoc.work_day].end_time = eDoc.end_time;
+          }
+        });
+      });
+      console.log(uniqueEmployees);
+    });
 }
 module.exports = {
   index,
   new: newWeek,
   create,
+  show,
 };

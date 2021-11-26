@@ -1,8 +1,7 @@
 const mongoose = require("mongoose");
 
-mongoose.connect("mongodb://127.0.0.1:27017/home", {
+mongoose.connect("mongodb://127.0.0.1:27017/shift-click", {
   useNewUrlParser: true,
-
   useUnifiedTopology: true,
 });
 

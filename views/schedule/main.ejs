@@ -27,12 +27,18 @@
           class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end"
           role="toolbar"
         >
-        <a href="/"><button
-          class="material-icons mdc-top-app-bar__action-item mdc-icon-button"
-          aria-label="home"
-        >
-          home
-        </button></a>
+          <a href="/"
+            ><button
+              class="
+                material-icons
+                mdc-top-app-bar__action-item
+                mdc-icon-button
+              "
+              aria-label="home"
+            >
+              home
+            </button></a
+          >
           <a href="/roster"
             ><button
               class="
@@ -51,17 +57,23 @@
           >
             date_range
           </button>
-     
         </section>
       </div>
     </header>
     <main class="mdc-top-app-bar--fixed-adjust mdc-card">
       <div class="mdc-data-table">
-        <button class="material-icons mdc-icon-button">arrow_back</button>
-        <h3>Week</h3>
-        <button class="material-icons mdc-icon-button">arrow_forward</button>
-        <a href="schedule/edit"><button class="material-icons mdc-icon-button">edit</button></a>
-        <a href="schedule/new"><button class="material-icons mdc-icon-button">add</button></a>
+        <h3>Select A Week</h3>
+
+        <% schedule.forEach(function(i){ %>
+        <a href="/schedule/<%= i._id %>"><%= i %></a>
+        <% }); %>
+
+        <a href="schedule/edit"
+          ><button class="material-icons mdc-icon-button">edit</button></a
+        >
+        <a href="schedule/new"
+          ><button class="material-icons mdc-icon-button">add</button></a
+        >
 
         <div class="mdc-data-table__table-container">
           <table class="mdc-data-table__table" aria-label="Dessert calories">
@@ -139,10 +151,10 @@
               </tr>
             </thead>
             <tbody class="mdc-data-table__content">
-              <% employees.forEach(function(e) { %>
+              <% schedule.forEach(function(e) { %>
               <tr class="mdc-data-table__row">
                 <th class="mdc-data-table__cell" scope="row">
-                  <%= e.first_name %> <%= e.last_name %>
+                  <%= e.employee %>
                 </th>
                 <td
                   class="mdc-data-table__cell mdc-data-table__cell--numeric"
