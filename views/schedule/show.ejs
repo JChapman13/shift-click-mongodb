@@ -62,17 +62,8 @@
     </header>
     <main class="mdc-top-app-bar--fixed-adjust mdc-card">
       <div class="mdc-data-table">
-        <h3>Select A Week</h3>
-
-        <% schedule.forEach(function(i){ %>
-        <form action="/schedule/show/"><input type="submit" value="<%= i %>">
-        <% }); %>
-
         <a href="schedule/edit"
           ><button class="material-icons mdc-icon-button">edit</button></a
-        >
-        <a href="/schedule/new"
-          ><button class="material-icons mdc-icon-button">add</button></a
         >
 
         <div class="mdc-data-table__table-container">
@@ -150,7 +141,38 @@
                 </th>
               </tr>
             </thead>
-  
+            <tbody class="mdc-data-table__content">
+              <% uniqueEmployees.forEach(function(e) { %>
+              <tr class="mdc-data-table__row">
+                <th class="mdc-data-table__cell" scope="row">
+                  <%= e.employee %>
+                </th>
+                <td class="mdc-data-table__cell mdc-data-table__cell--numeric">
+                  <%= e.start_time %> - <%= e.end_time %>
+                </td>
+                <td class="mdc-data-table__cell mdc-data-table__cell--numeric">
+                  <%= e.start_time %> - <%= e.end_time %>
+                </td>
+                <td class="mdc-data-table__cell mdc-data-table__cell--numeric">
+                  <%= e.start_time %> - <%= e.end_time %>
+                </td>
+                <td class="mdc-data-table__cell mdc-data-table__cell--numeric">
+                  <%= e.start_time %> - <%= e.end_time %>
+                </td>
+                <td class="mdc-data-table__cell mdc-data-table__cell--numeric">
+                  <%= e.start_time %> - <%= e.end_time %>
+                </td>
+                <td class="mdc-data-table__cell mdc-data-table__cell--numeric">
+                  <%= e.start_time %> - <%= e.end_time %>
+                </td>
+                <td class="mdc-data-table__cell mdc-data-table__cell--numeric">
+                  <%= e.start_time %> - <%= e.end_time %>
+                </td>
+                <td class="mdc-data-table__cell mdc-data-table__cell--numeric">
+                  <%= e.start_time %> - <%= e.end_time %>
+                </td>
+              </tr>
+              <% }); %>
             </tbody>
           </table>
         </div>

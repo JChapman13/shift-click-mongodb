@@ -4,7 +4,7 @@ const User = require("../models/user");
 function index(req, res) {
   Schedule.distinct("week_id", function (err, schedule) {
     console.log(schedule);
-    res.render("schedule/main", { schedule });
+    res.render("schedule/main", { schedule});
   });
 }
 
@@ -45,9 +45,7 @@ function create(req, res) {
 }
 
 function show(req, res) {
-  Schedule.find("week_id")
-    .populate("employees")
-    .exec(function (err, employees) {
+  Schedule.find({}).get(function (err, employees) {
       let employeeNames = employees.map((e) => e.employee);
       let uniqueEmployees = [...new Set(employeeNames)];
       uniqueEmployees.forEach((e, idx) => {
@@ -60,7 +58,7 @@ function show(req, res) {
           }
         });
       });
-      console.log(uniqueEmployees);
+      console.log(uniqueEmployees)
     });
 }
 module.exports = {
