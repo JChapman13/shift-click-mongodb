@@ -1,6 +1,6 @@
 # Shift+Click
 
-Shift+Click is a scheduling system for retail stores.
+Shift+Click is a scheduling system for retail stores that can log employee information in a roster, and schedule those employees weekly.
 
 ## Authors
 
@@ -28,3 +28,7 @@ If you ever wondered what it would be like to have a non-relational database, ho
 - Finishing the styling to make it more polished
 
 - Add front page of quickview for the current day and employees scheduled.
+
+![App Screenshot]()
+![App Screenshot]()
+![App Screenshot]()
