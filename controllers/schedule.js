@@ -4,7 +4,7 @@ const User = require("../models/user");
 function index(req, res) {
   Schedule.distinct("week_id", function (err, schedule) {
     console.log(schedule);
-    res.render("schedule/main", { schedule});
+    res.render("schedule/main", { schedule });
   });
 }
 
@@ -45,20 +45,24 @@ function create(req, res) {
 }
 
 function show(req, res) {
-  Schedule.find({}).get(function (err, employees) {
-      let employeeNames = employees.map((e) => e.employee);
+  Schedule.find({ week_id: req.params.id })
+    .populate("employee")
+    .exec(function (err, employees) {
+      let employeeNames = employees.map(
+        (e) => e.employee.first_name + " " + e.employee.last_name
+      );
       let uniqueEmployees = [...new Set(employeeNames)];
       uniqueEmployees.forEach((e, idx) => {
         uniqueEmployees[idx] = { employee: e };
         employees.forEach((eDoc) => {
-          if (eDoc.employee === e) {
+          if (`${eDoc.employee.first_name} ${eDoc.employee.last_name}` === e) {
             uniqueEmployees[idx][eDoc.work_day] = {};
             uniqueEmployees[idx][eDoc.work_day].start_time = eDoc.start_time;
             uniqueEmployees[idx][eDoc.work_day].end_time = eDoc.end_time;
           }
         });
       });
-      console.log(uniqueEmployees)
+      res.render("schedule/show", { uniqueEmployees });
     });
 }
 module.exports = {

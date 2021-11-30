@@ -65,13 +65,13 @@
         <h3>Select A Week</h3>
 
         <% schedule.forEach(function(i){ %>
-        <form action="/schedule/show/"><input type="submit" value="<%= i %>">
+        <form action="/schedule/show"><input type="submit" value="<%= i %>">
         <% }); %>
-
-        <a href="schedule/edit"
+</form>
+        <a href="/schedule/edit"
           ><button class="material-icons mdc-icon-button">edit</button></a
         >
-        <a href="/new"
+        <a href="/schedule/new"
           ><button class="material-icons mdc-icon-button">add</button></a
         >
 
