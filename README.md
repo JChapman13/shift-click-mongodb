@@ -29,6 +29,6 @@ If you ever wondered what it would be like to have a non-relational database, ho
 
 - Add front page of quickview for the current day and employees scheduled.
 
-![App Screenshot]()
-![App Screenshot]()
-![App Screenshot]()
+![App Screenshot](https://github.com/JChapman13/shift-click/blob/main/public/images/employee.png?raw=true)
+![App Screenshot](https://github.com/JChapman13/shift-click/blob/main/public/images/employeeInfo.png?raw=true)
+![App Screenshot](https://github.com/JChapman13/shift-click/blob/main/public/images/newSchedule.png?raw=true)
